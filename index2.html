@@ -1,0 +1,1935 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Mayur & Rutuja | Wedding Invitation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:wght@500;700&family=Great+Vibes&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Playfair Display', serif;
+      background: #0b1c2d;
+      color: #f8f3e7;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* Animated Background */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1), transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(255, 241, 184, 0.08), transparent 50%);
+    }
+
+    .floating-petals {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .petal {
+      position: absolute;
+      font-size: 24px;
+      opacity: 0.6;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0.6;
+      }
+
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Music Control */
+    .music-control {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: rgba(212, 175, 55, 0.2);
+      border: 2px solid #d4af37;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .music-control:hover {
+      transform: scale(1.1);
+      background: rgba(212, 175, 55, 0.4);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 100px 20px;
+      position: relative;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .ganesh {
+      width: 100px;
+      animation: float 3s ease-in-out infinite;
+      filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    .shloka {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 3px;
+      font-size: 22px;
+      margin: 20px 0;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+
+      0%,
+      100% {
+        text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+      }
+
+      50% {
+        text-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 30px rgba(212, 175, 55, 0.5);
+      }
+    }
+
+    .marathi {
+      font-size: 16px;
+      opacity: 0.9;
+      margin: 15px 0;
+    }
+
+    .divider {
+      width: 180px;
+      height: 3px;
+      margin: 40px auto;
+      background: linear-gradient(90deg, transparent, #d4af37, #fff3c4, #d4af37, transparent);
+      animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+      0% {
+        opacity: .4;
+        transform: scaleX(0.8);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+
+      100% {
+        opacity: .4;
+        transform: scaleX(0.8);
+      }
+    }
+
+    .hero h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 60px;
+      margin: 15px 0;
+      color: #fff1b8;
+      animation: slideIn 1s ease-out;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .amp {
+      font-size: 40px;
+      margin: 10px 0;
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    .subtitle {
+      font-size: 18px;
+      margin-top: 30px;
+      color: #efe6c3;
+      font-style: italic;
+    }
+
+    /* Couple Section */
+    .couple {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      padding: 100px 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(28, 53, 82, 0.8), rgba(15, 34, 54, 0.8));
+      padding: 30px;
+      border-radius: 20px;
+      border: 2px solid #d4af37;
+      width: 320px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, .7);
+      transition: all 0.4s ease;
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+      transform: rotate(45deg);
+      transition: all 0.6s;
+    }
+
+    .card:hover::before {
+      transform: rotate(45deg) translate(50%, 50%);
+    }
+
+    .card:hover {
+      transform: translateY(-15px) scale(1.03);
+      box-shadow: 0 35px 70px rgba(212, 175, 55, .3);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 50%;
+      border: 5px solid #d4af37;
+      transition: all 0.4s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+    }
+
+    .card h3 {
+      font-family: 'Cinzel', serif;
+      margin-top: 20px;
+      color: #fff1b8;
+      font-size: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card p {
+      position: relative;
+      z-index: 1;
+      margin-top: 10px;
+    }
+
+    /* Details Section */
+    .details {
+      padding: 100px 20px;
+      background: linear-gradient(135deg, rgba(15, 34, 54, 0.9), rgba(9, 21, 35, 0.9));
+      border-top: 3px solid #d4af37;
+      border-bottom: 3px solid #d4af37;
+      position: relative;
+    }
+
+    .details h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 42px;
+      margin-bottom: 40px;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .detail-item {
+      font-size: 20px;
+      margin: 15px 0;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    .detail-item strong {
+      color: #d4af37;
+      font-family: 'Cinzel', serif;
+    }
+
+    #countdown {
+      margin: 40px 0;
+      font-size: 28px;
+      font-family: 'Cinzel', serif;
+      color: #fff1b8;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .countdown-item {
+      background: rgba(212, 175, 55, 0.1);
+      padding: 20px 25px;
+      border-radius: 15px;
+      border: 2px solid #d4af37;
+      min-width: 100px;
+      backdrop-filter: blur(10px);
+      animation: countPulse 1s infinite;
+    }
+
+    @keyframes countPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .countdown-number {
+      font-size: 36px;
+      font-weight: bold;
+      display: block;
+      color: #fff1b8;
+    }
+
+    .countdown-label {
+      font-size: 14px;
+      color: #d4af37;
+      display: block;
+      margin-top: 5px;
+    }
+
+    /* Buttons */
+    .map-btn,
+    .whatsapp {
+      display: inline-block;
+      margin: 15px 10px;
+      padding: 16px 40px;
+      background: linear-gradient(135deg, #fff1b8, #d4af37);
+      color: #0b1c2d;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .map-btn::before,
+    .whatsapp::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .map-btn:hover::before,
+    .whatsapp:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .map-btn:hover,
+    .whatsapp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+    }
+
+    /* Gallery Section */
+    .gallery {
+      padding: 100px 20px;
+      background: linear-gradient(to bottom, #0b1c2d, #13293d);
+    }
+
+    .gallery h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 42px;
+      margin-bottom: 50px;
+    }
+
+    .timeline {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .timeline-item {
+      background: rgba(28, 53, 82, 0.5);
+      padding: 30px;
+      margin: 30px 0;
+      border-left: 4px solid #d4af37;
+      border-radius: 10px;
+      transition: all 0.3s;
+      backdrop-filter: blur(10px);
+    }
+
+    .timeline-item:hover {
+      transform: translateX(10px);
+      background: rgba(28, 53, 82, 0.8);
+    }
+
+    .timeline-item h3 {
+      color: #d4af37;
+      font-family: 'Cinzel', serif;
+      margin-bottom: 10px;
+    }
+
+    /* Invite Section */
+    .invite {
+      padding: 100px 20px;
+      font-size: 20px;
+      background: radial-gradient(circle, rgba(19, 41, 61, 0.8), rgba(11, 28, 45, 0.9));
+    }
+
+    .invite p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      line-height: 1.8;
+    }
+
+    .host {
+      margin-top: 40px;
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      color: #fff1b8;
+    }
+
+    /* RSVP Button */
+    .rsvp-btn {
+      display: inline-block;
+      margin: 30px 10px;
+      padding: 18px 50px;
+      background: linear-gradient(135deg, #d4af37, #fff1b8);
+      color: #0b1c2d;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+      transition: all 0.3s;
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .rsvp-btn:hover {
+      animation: none;
+      transform: scale(1.1);
+      box-shadow: 0 12px 30px rgba(212, 175, 55, 0.6);
+    }
+
+    /* Footer */
+    footer {
+      background: #070f19;
+      padding: 40px 20px;
+      border-top: 2px solid #d4af37;
+    }
+
+    footer p {
+      font-family: 'Cinzel', serif;
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .heart {
+      color: #d4af37;
+      animation: heartBeat 1.5s infinite;
+      display: inline-block;
+    }
+
+    @keyframes heartBeat {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      10%,
+      30% {
+        transform: scale(1.2);
+      }
+
+      20%,
+      40% {
+        transform: scale(1.1);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .couple {
+        gap: 40px;
+      }
+
+      .card {
+        width: 280px;
+      }
+
+      #countdown {
+        font-size: 20px;
+      }
+
+      .countdown-number {
+        font-size: 28px;
+      }
+    }
+
+    /* Scroll Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s, transform 0.8s;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== LOADING SCREEN ===== */
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0b1c2d, #13293d);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 0.8s ease-out;
+      pointer-events: none;
+    }
+
+    .loading-screen.hidden {
+      opacity: 0;
+      pointer-events: none;
+      display: none;
+    }
+
+    .loader-content {
+      text-align: center;
+      animation: fadeInLoader 1s ease-in;
+    }
+
+    .loader-ganesh {
+      width: 100px;
+      font-size: 80px;
+      animation: float 3s ease-in-out infinite, pulse 2s ease-in-out infinite;
+      filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.8));
+    }
+
+    .loader-names {
+      margin-top: 30px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 48px;
+      color: #fff1b8;
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+      animation: slideInUp 1.5s ease-out;
+    }
+
+    .loader-subtitle {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 3px;
+      color: #d4af37;
+      margin-top: 20px;
+      font-size: 16px;
+      animation: slideInUp 1.8s ease-out;
+    }
+
+    .loader-bar {
+      width: 200px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #d4af37, transparent);
+      margin-top: 30px;
+      animation: shimmer 2s infinite;
+    }
+
+    @keyframes fadeInLoader {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== SCROLL TO TOP BUTTON ===== */
+    .scroll-to-top {
+      position: fixed;
+      bottom: -60px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #d4af37, #fff1b8);
+      border: none;
+      border-radius: 50%;
+      color: #0b1c2d;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+    }
+
+    .scroll-to-top.show {
+      bottom: 30px;
+    }
+
+    .scroll-to-top:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+    }
+
+    /* ===== CAROUSEL ===== */
+    .carousel-section {
+      padding: 100px 20px;
+      background: linear-gradient(to bottom, #13293d, #0b1c2d);
+    }
+
+    .carousel-section h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 42px;
+      margin-bottom: 50px;
+      color: #fff1b8;
+    }
+
+    .carousel-container {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      background: rgba(28, 53, 82, 0.6);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      border: 2px solid #d4af37;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .carousel-slides {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(15, 34, 54, 0.8);
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-controls {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 15px;
+      z-index: 10;
+    }
+
+    .carousel-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: all 0.3s;
+      border: 2px solid #d4af37;
+    }
+
+    .carousel-dot.active {
+      background: #d4af37;
+      transform: scale(1.3);
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(212, 175, 55, 0.8);
+      color: #0b1c2d;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      z-index: 10;
+    }
+
+    .carousel-btn:hover {
+      background: #d4af37;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-btn.prev {
+      left: 10px;
+    }
+
+    .carousel-btn.next {
+      right: 10px;
+    }
+
+    /* ===== MESSAGE BOARD ===== */
+    .message-section {
+      padding: 100px 20px;
+      background: linear-gradient(135deg, rgba(15, 34, 54, 0.9), rgba(9, 21, 35, 0.9));
+    }
+
+    .message-section h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 42px;
+      margin-bottom: 50px;
+      color: #fff1b8;
+    }
+
+    .message-form {
+      max-width: 600px;
+      margin: 0 auto 50px;
+      background: rgba(28, 53, 82, 0.6);
+      padding: 40px;
+      border-radius: 20px;
+      border: 2px solid #d4af37;
+      backdrop-filter: blur(10px);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #d4af37;
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #d4af37;
+      border-radius: 8px;
+      color: #f8f3e7;
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+      border-color: #fff1b8;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .message-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #d4af37, #fff1b8);
+      color: #0b1c2d;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-family: 'Cinzel', serif;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 16px;
+    }
+
+    .message-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+    }
+
+    .sample-messages {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .sample-message {
+      background: rgba(28, 53, 82, 0.4);
+      padding: 25px;
+      margin: 15px 0;
+      border-left: 4px solid #d4af37;
+      border-radius: 10px;
+      animation: slideIn 0.6s ease-out;
+    }
+
+    .sample-message .sender {
+      color: #d4af37;
+      font-family: 'Cinzel', serif;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .sample-message .text {
+      color: #f8f3e7;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* ===== SUCCESS MODAL ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal.show {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-content {
+      background: linear-gradient(135deg, rgba(28, 53, 82, 0.95), rgba(15, 34, 54, 0.95));
+      border: 2px solid #d4af37;
+      border-radius: 20px;
+      padding: 50px 40px;
+      text-align: center;
+      max-width: 500px;
+      animation: modalSlideIn 0.4s ease-out;
+      backdrop-filter: blur(10px);
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8) translateY(-50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .modal-icon {
+      font-size: 80px;
+      animation: celebrate 0.6s ease-out;
+      margin-bottom: 20px;
+    }
+
+    @keyframes celebrate {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .modal-content h3 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 36px;
+      color: #fff1b8;
+      margin: 20px 0;
+    }
+
+    .modal-content p {
+      color: #efe6c3;
+      margin: 15px 0;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .modal-close {
+      margin-top: 30px;
+      padding: 12px 30px;
+      background: linear-gradient(135deg, #d4af37, #fff1b8);
+      color: #0b1c2d;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+
+    .modal-close:hover {
+      transform: scale(1.05);
+    }
+
+    /* ===== DRESS CODE SECTION ===== */
+    .dress-code {
+      padding: 100px 20px;
+      background: linear-gradient(to bottom, #0b1c2d, #13293d);
+    }
+
+    .dress-code h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 42px;
+      margin-bottom: 50px;
+      color: #fff1b8;
+    }
+
+    .dress-items {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .dress-item {
+      background: rgba(28, 53, 82, 0.6);
+      padding: 40px;
+      border-radius: 15px;
+      border: 2px solid #d4af37;
+      text-align: center;
+      width: 300px;
+      transition: all 0.3s;
+      backdrop-filter: blur(10px);
+    }
+
+    .dress-item:hover {
+      transform: translateY(-10px);
+      background: rgba(28, 53, 82, 0.8);
+      box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+    }
+
+    .dress-icon {
+      font-size: 60px;
+      margin-bottom: 20px;
+      animation: bounce 2s infinite;
+    }
+
+    .dress-item h3 {
+      color: #d4af37;
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .dress-item p {
+      color: #efe6c3;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* ===== GIFT REGISTRY ===== */
+    .gift-registry {
+      padding: 100px 20px;
+      background: linear-gradient(135deg, rgba(15, 34, 54, 0.9), rgba(9, 21, 35, 0.9));
+    }
+
+    .gift-registry h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 42px;
+      margin-bottom: 50px;
+      color: #fff1b8;
+    }
+
+    .gift-message {
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(28, 53, 82, 0.6);
+      padding: 40px;
+      border-radius: 20px;
+      border: 2px solid #d4af37;
+      text-align: center;
+      line-height: 1.8;
+      backdrop-filter: blur(10px);
+    }
+
+    .gift-message p {
+      color: #efe6c3;
+      font-size: 18px;
+      margin: 15px 0;
+    }
+
+    .gift-icon {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+
+    /* ===== CALENDAR BUTTON ===== */
+    .calendar-btn {
+      display: inline-block;
+      margin: 20px 10px;
+      padding: 14px 30px;
+      background: linear-gradient(135deg, #d4af37, #fff1b8);
+      color: #0b1c2d;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      font-family: 'Cinzel', serif;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .calendar-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+    }
+
+    /* ===== HASHTAG FOOTER ===== */
+    .hashtag-footer {
+      font-size: 24px;
+      color: #d4af37;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 2px;
+      margin: 15px 0;
+      animation: slideIn 0.8s ease-out;
+    }
+
+    /* ===== MUSIC CONTROL ENHANCEMENT ===== */
+    .music-control {
+      transition: all 0.3s;
+    }
+
+    .music-control.playing {
+      animation: musicPulse 0.8s infinite;
+    }
+
+    @keyframes musicPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.15);
+      }
+    }
+
+    /* ===== ENHANCED ANIMATIONS ===== */
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Enhanced Responsive */
+    @media (max-width: 768px) {
+      .loading-screen {
+        padding: 20px;
+      }
+
+      .loader-names {
+        font-size: 36px;
+      }
+
+      .carousel-section {
+        padding: 80px 20px;
+      }
+
+      .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+
+      .message-form {
+        padding: 25px;
+      }
+
+      .dress-items {
+        gap: 25px;
+      }
+
+      .dress-item {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .scroll-to-top {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+        right: 20px;
+      }
+
+      .modal-content {
+        margin: 20px;
+        padding: 30px 20px;
+      }
+
+      .gift-message {
+        padding: 25px;
+      }
+    }
+
+    /* ================= MOBILE-FIRST RESPONSIVE FIXES ================= */
+
+    /* General scaling */
+    @media (max-width: 768px) {
+      body {
+        font-size: 15px;
+      }
+
+      section {
+        padding: 70px 16px !important;
+      }
+
+      h1 {
+        font-size: 38px !important;
+        line-height: 1.2;
+      }
+
+      h2 {
+        font-size: 30px !important;
+      }
+
+      h3 {
+        font-size: 20px !important;
+      }
+
+      p {
+        font-size: 15px !important;
+        line-height: 1.6;
+      }
+    }
+
+    /* Hero */
+    @media (max-width: 768px) {
+      .hero {
+        padding-top: 80px !important;
+      }
+
+      .ganesh {
+        width: 80px;
+      }
+
+      .amp {
+        font-size: 30px;
+      }
+    }
+
+    /* Couple cards */
+    @media (max-width: 768px) {
+      .couple {
+        gap: 30px;
+      }
+
+      .card {
+        width: 100% !important;
+        max-width: 320px;
+      }
+    }
+
+    /* Carousel */
+    @media (max-width: 768px) {
+      .carousel-container {
+        max-width: 100%;
+      }
+
+      .carousel-slide {
+        aspect-ratio: 4 / 3;
+      }
+
+      .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+    }
+
+    /* Buttons */
+    @media (max-width: 768px) {
+
+      .map-btn,
+      .whatsapp,
+      .rsvp-btn,
+      .calendar-btn,
+      .message-btn {
+        width: 100%;
+        max-width: 320px;
+        padding: 14px 20px;
+        font-size: 15px;
+      }
+    }
+
+    /* Countdown */
+    @media (max-width: 768px) {
+      #countdown {
+        gap: 12px;
+      }
+
+      .countdown-item {
+        min-width: 80px;
+        padding: 12px;
+      }
+
+      .countdown-number {
+        font-size: 24px;
+      }
+    }
+
+    /* Timeline */
+    @media (max-width: 768px) {
+      .timeline-item {
+        padding: 20px;
+      }
+    }
+
+    /* Message form */
+    @media (max-width: 768px) {
+      .message-form {
+        padding: 25px !important;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        font-size: 14px;
+      }
+    }
+
+    /* Dress code */
+    @media (max-width: 768px) {
+      .dress-items {
+        gap: 25px;
+      }
+
+      .dress-item {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+
+    /* Footer */
+    @media (max-width: 768px) {
+      footer p {
+        font-size: 14px;
+      }
+
+      .hashtag-footer {
+        font-size: 18px;
+      }
+    }
+
+    /* Scroll button fix */
+    @media (max-width: 768px) {
+      .scroll-to-top {
+        right: 15px;
+        bottom: 15px;
+      }
+    }
+
+    /* Performance: reduce heavy effects on mobile */
+    @media (max-width: 768px) {
+      * {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+    }
+
+    /* ===== DOWNLOAD WEDDING CARD BUTTON ===== */
+    .download-card-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 16px 36px;
+      background: linear-gradient(135deg, #d4af37, #fff1b8);
+      color: #0b1c2d;
+      text-decoration: none;
+      font-family: 'Cinzel', serif;
+      font-weight: bold;
+      font-size: 16px;
+      border-radius: 50px;
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .download-card-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(212, 175, 55, 0.6);
+    }
+
+    /* Mobile friendly */
+    @media (max-width: 768px) {
+      .download-card-btn {
+        width: 100%;
+        max-width: 320px;
+        padding: 14px 20px;
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+  <div class="bg-animation"></div>
+  <div class="floating-petals" id="petals"></div>
+
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loader-content">
+      <div class="loader-ganesh">🌸</div>
+      <div class="loader-names">Mayur & Rutuja</div>
+      <div class="loader-subtitle">Wedding Invitation</div>
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" id="scrollToTop" title="Scroll to Top">↑</button>
+
+  <!-- Music Control -->
+  <div class="music-control" id="musicToggle" title="Toggle Music">🎵</div>
+  <audio id="bgMusic" loop preload="auto">
+
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Hero -->
+  <section class="hero">
+    <img src="ganesh.png" class="ganesh" alt="Ganesh">
+    <p class="shloka">॥ श्री गणेशाय नमः ॥</p>
+    <p class="marathi">श्री गणपतीच्या कृपेने आणि सर्वांच्या शुभाशीर्वादाने</p>
+    <div class="divider"></div>
+    <h1>Mayur Mohan More</h1>
+    <span class="amp">&</span>
+    <h1>Rutuja Wagmare</h1>
+    <p class="subtitle">
+      Friends cordially invite you to grace and bless<br>
+      the auspicious wedding ceremony
+    </p>
+    <a href="wedding-card.jpeg" download class="download-card-btn">
+      📥 Download Wedding Card
+    </a>
+
+  </section>
+
+  <!-- Couple -->
+  <section class="couple fade-in">
+    <div class="card">
+      <img src="mayur.jpeg" alt="Mayur">
+      <h3>Mayur Mohan More</h3>
+      <p>Bachelor of Engineering<br>Computer Science Engineering</p>
+    </div>
+    <div class="card">
+      <img src="rutuja.jpg" alt="Rutuja">
+      <h3>Rutuja Wagmare</h3>
+      <p>Bachelor of Engineering<br>Civil Engineering</p>
+    </div>
+  </section>
+
+  <!-- Photo Carousel -->
+  <section class="carousel-section fade-in">
+    <h2>Blessings</h2>
+    <div class="carousel-container">
+      <div class="carousel-wrapper">
+        <div class="carousel-slides" id="carouselSlides">
+          <div class="carousel-slide">
+            <img src="photo1.jpeg" alt="Dhana Don 1">
+          </div>
+          <div class="carousel-slide">
+            <img src="photo2.jpeg" alt="Photo 208">
+          </div>
+          <div class="carousel-slide">
+            <img src="photo3.jpeg" alt="Couple Photo 3">
+          </div>
+          <div class="carousel-slide">
+            <img src="photo4.jpeg" alt="Couple Photo 4">
+          </div>
+          <div class="carousel-slide">
+            <img src="photo5.jpeg" alt="Couple Photo 5">
+          </div>
+        </div>
+        <button class="carousel-btn prev" id="prevBtn">❮</button>
+        <button class="carousel-btn next" id="nextBtn">❯</button>
+        <div class="carousel-controls" id="carouselDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dress Code Section -->
+  <section class="dress-code fade-in">
+    <h2>Dress Code Guide</h2>
+    <div class="dress-items">
+      <div class="dress-item">
+        <div class="dress-icon">👰</div>
+        <h3>For Bride</h3>
+        <p>Traditional Marathi Saree, Bridal Jewelry & Heavy Makeup</p>
+      </div>
+      <div class="dress-item">
+        <div class="dress-icon">🤵</div>
+        <h3>For Groom</h3>
+        <p>Traditional Marathi Attire - Sherwani with Turban</p>
+      </div>
+      <div class="dress-item">
+        <div class="dress-icon">✨</div>
+        <h3>For Guests</h3>
+        <p>Traditional or Ethnic Wear - Saree, Lehenga, or Formal Attire</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gift Registry -->
+  <section class="gift-registry fade-in">
+    <h2>Gifts & Blessings</h2>
+    <div class="gift-message">
+      <div class="gift-icon">🎁</div>
+      <p>Your love and blessings are the greatest gifts we could ask for.</p>
+      <p>Rather than material gifts, we request you to be present with us and shower your heartfelt wishes on this
+        special day.</p>
+      <p>Your warm wishes and memories with us are the most precious gifts that will last forever.</p>
+    </div>
+  </section>
+
+  <!-- Details -->
+  <section class="details fade-in">
+    <h2>Wedding Details</h2>
+    <p class="detail-item"><strong>Date:</strong> 14 February 2026</p>
+    <p class="detail-item"><strong>Time:</strong> 10:30 AM</p>
+    <p class="detail-item"><strong>Venue:</strong> Aram Lodge, Dehu Fata</p>
+
+    <div id="countdown"></div>
+
+    <a class="map-btn" href="https://www.google.com/maps/search/Aram+Lodge+Dehu+Fata" target="_blank">
+      📍 View Location
+    </a>
+
+    <button class="calendar-btn" onclick="addToCalendar()">📅 Add to Calendar</button>
+  </section>
+
+  <!-- Timeline -->
+  <section class="gallery fade-in">
+    <h2>Wedding Timeline</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>🎊 Welcome & Registration</h3>
+        <p>9:30 AM - 10:15 AM</p>
+        <p>Join us for a warm welcome with refreshments</p>
+      </div>
+      <div class="timeline-item">
+        <h3>💍 Wedding Ceremony</h3>
+        <p>10:30 AM - 12:00 PM</p>
+        <p>Sacred matrimonial rituals and blessings</p>
+      </div>
+      <div class="timeline-item">
+        <h3>📸 Photography Session</h3>
+        <p>12:00 PM - 1:00 PM</p>
+        <p>Capture memories with the newlyweds</p>
+      </div>
+      <div class="timeline-item">
+        <h3>🍽️ Reception & Dinner</h3>
+        <p>1:00 PM onwards</p>
+        <p>Celebrate with delicious cuisine and festivities</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Message Board -->
+  <section class="message-section fade-in">
+    <h2>Blessings & Wishes</h2>
+
+    <div class="message-form">
+      <form id="messageForm">
+        <div class="form-group">
+          <label for="guestName">Your Name *</label>
+          <input type="text" id="guestName" name="guestName" required placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+          <label for="guestMessage">Your Message *</label>
+          <textarea id="guestMessage" name="guestMessage" required
+            placeholder="Share your blessings and wishes..."></textarea>
+        </div>
+        <button type="submit" class="message-btn">💌 Send Wishes</button>
+      </form>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+      <div class="modal-content">
+        <div class="modal-icon">💐</div>
+        <h3>Thank You!</h3>
+        <p id="modalMessage">Your wishes have been received with love and gratitude.</p>
+        <button class="modal-close" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+
+    <!-- Sample Messages Section -->
+    <div class="sample-messages">
+      <h3 style="text-align: center; color: #d4af37; margin: 40px 0 30px; font-family: 'Cinzel', serif;">Blessings from
+        Our Guests</h3>
+      <div id="messagesDisplay"></div>
+    </div>
+  </section>
+
+  <!-- Invitation -->
+  <section class="invite fade-in">
+    <p>
+      Your gracious presence and blessings<br>
+      will make this sacred occasion truly memorable for us.
+    </p>
+
+    <a class="rsvp-btn"
+      href="https://wa.me/?text=I%20will%20be%20attending%20Mayur%20and%20Rutuja's%20Wedding%20on%2014%20Feb%202026"
+      target="_blank">
+      ✓ Confirm Your Presence
+    </a>
+
+    <p class="host">
+      Hosted with love by<br>
+      <strong>Friends & Well-Wishers</strong>
+    </p>
+
+    <a class="whatsapp"
+      href="https://wa.me/?text=You%20are%20invited%20to%20Mayur%20and%20Rutuja's%20Wedding%20on%2014%20Feb%202026%20at%2010:30%20AM%20at%20Aram%20Lodge,%20Dehu%20Fata"
+      target="_blank">
+      📤 Share Invitation
+    </a>
+  </section>
+
+  <footer>
+    <p>We look forward to celebrating with you <span class="heart">❤️</span></p>
+    <p class="hashtag-footer">#MayurWeddsRutuja</p>
+    <p style="font-size: 14px; margin-top: 20px; opacity: 0.7;">
+      14.02.2026
+    </p>
+  </footer>
+
+  <script>
+    // ===== LOADING SCREEN =====
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const loadingScreen = document.getElementById('loadingScreen');
+        loadingScreen.classList.add('hidden');
+      }, 2000);
+    });
+
+    // ===== SCROLL TO TOP BUTTON =====
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollToTopBtn.classList.add('show');
+      } else {
+        scrollToTopBtn.classList.remove('show');
+      }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // ===== CAROUSEL FUNCTIONALITY =====
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const slideCount = slides.length;
+    let carouselInterval;
+
+    function initCarouselDots() {
+      const dotsContainer = document.getElementById('carouselDots');
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < slideCount; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateCarousel() {
+      const slidesContainer = document.getElementById('carouselSlides');
+      slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slideCount;
+      updateCarousel();
+      resetCarouselTimer();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+      updateCarousel();
+      resetCarouselTimer();
+    }
+
+    function goToSlide(n) {
+      currentSlide = n % slideCount;
+      updateCarousel();
+      resetCarouselTimer();
+    }
+
+    function startAutoCarousel() {
+      carouselInterval = setInterval(nextSlide, 5000);
+    }
+
+    function resetCarouselTimer() {
+      clearInterval(carouselInterval);
+      startAutoCarousel();
+    }
+
+    document.getElementById('nextBtn').addEventListener('click', nextSlide);
+    document.getElementById('prevBtn').addEventListener('click', prevSlide);
+
+    initCarouselDots();
+    startAutoCarousel();
+
+    // ===== MESSAGE BOARD =====
+    // Sample messages to display
+    const sampleMessages = [
+      { name: "Priya Sharma", message: "Wishing you a lifetime of happiness and love together. May your marriage be filled with beautiful moments and endless joy!" },
+      { name: "Rajesh Kumar", message: "Congratulations on your wedding! May you both support each other through all the joys and challenges of life." },
+      { name: "Anjali Desai", message: "What a beautiful couple! Here's to love, laughter, and happily ever after. Have a magical wedding day!" },
+      { name: "Vikram Patel", message: "Two souls, one heart. Wishing you both a wonderful journey ahead filled with blessings and prosperity." }
+    ];
+
+    // Load messages from localStorage and display
+    function loadAndDisplayMessages() {
+      const messagesDisplay = document.getElementById('messagesDisplay');
+      const storedMessages = JSON.parse(localStorage.getItem('guestMessages')) || [];
+      const allMessages = [...sampleMessages, ...storedMessages];
+
+      messagesDisplay.innerHTML = allMessages.map(msg => `
+        <div class="sample-message">
+          <div class="sender">✨ ${msg.name}</div>
+          <div class="text">"${msg.message}"</div>
+        </div>
+      `).join('');
+    }
+
+    // Handle message form submission
+    document.getElementById('messageForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const guestName = document.getElementById('guestName').value.trim();
+      const guestMessage = document.getElementById('guestMessage').value.trim();
+
+      if (guestName && guestMessage) {
+        // Store message in localStorage
+        const storedMessages = JSON.parse(localStorage.getItem('guestMessages')) || [];
+        storedMessages.unshift({ name: guestName, message: guestMessage });
+        localStorage.setItem('guestMessages', JSON.stringify(storedMessages));
+
+        // Clear form
+        document.getElementById('messageForm').reset();
+
+        // Show success modal
+        showSuccessModal();
+
+        // Reload messages
+        loadAndDisplayMessages();
+      }
+    });
+
+    // Success Modal Functions
+    function showSuccessModal() {
+      const modal = document.getElementById('successModal');
+      modal.classList.add('show');
+      setTimeout(() => {
+        modal.classList.remove('show');
+      }, 3000);
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('successModal');
+      modal.classList.remove('show');
+    }
+
+    // Load messages on page load
+    loadAndDisplayMessages();
+
+    // ===== ADD TO CALENDAR =====
+    function addToCalendar() {
+      const eventTitle = 'Mayur & Rutuja Wedding';
+      const eventDate = '20260214'; // Feb 14, 2026
+      const eventTime = '103000'; // 10:30 AM
+      const eventDuration = '020000'; // 2 hours
+      const eventLocation = 'Aram Lodge, Dehu Fata';
+      const eventDescription = 'Celebrating the wedding of Mayur Mohan More and Rutuja Wagmare';
+
+      // Google Calendar URL
+      const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${eventDate}T${eventTime}Z/${eventDate}T120000Z&location=${encodeURIComponent(eventLocation)}&details=${encodeURIComponent(eventDescription)}`;
+
+      window.open(googleCalendarUrl, '_blank');
+    }
+
+    /* ================= MUSIC – ALWAYS ON (FINAL) ================= */
+
+    const bgMusic = document.getElementById("bgMusic");
+    const musicToggle = document.getElementById("musicToggle");
+
+    let musicStarted = false;
+
+    /* Start music after first user interaction (browser rule) */
+    function startMusicOnce() {
+      if (!musicStarted) {
+        bgMusic.volume = 0.6;
+        bgMusic.play().then(() => {
+          musicToggle.textContent = "🎵";
+          musicToggle.classList.add("playing");
+          musicStarted = true;
+        }).catch(() => { });
+      }
+    }
+
+    /* Trigger on first interaction */
+    document.addEventListener("click", startMusicOnce, { once: true });
+    document.addEventListener("touchstart", startMusicOnce, { once: true });
+
+    /* Manual toggle */
+    musicToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (bgMusic.paused) {
+        bgMusic.play();
+        musicToggle.textContent = "🎵";
+        musicToggle.classList.add("playing");
+      } else {
+        bgMusic.pause();
+        musicToggle.textContent = "🔇";
+        musicToggle.classList.remove("playing");
+      }
+    });
+
+    /* Resume music if tab regains focus */
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden && musicStarted && bgMusic.paused) {
+        bgMusic.play();
+      }
+    });
+
+
+    // ===== FLOATING PETALS =====
+    const petalsContainer = document.getElementById('petals');
+    const petalSymbols = ['🌸', '🌺', '🌼', '💐', '🏵️'];
+
+    for (let i = 0; i < 15; i++) {
+      const petal = document.createElement('div');
+      petal.className = 'petal';
+      petal.textContent = petalSymbols[Math.floor(Math.random() * petalSymbols.length)];
+      petal.style.left = Math.random() * 100 + '%';
+      petal.style.animationDuration = (Math.random() * 10 + 10) + 's';
+      petal.style.animationDelay = Math.random() * 5 + 's';
+      petalsContainer.appendChild(petal);
+    }
+
+    // ===== COUNTDOWN TIMER =====
+    const weddingDate = new Date("Feb 14, 2026 10:30:00").getTime();
+    const countdownEl = document.getElementById('countdown');
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance < 0) {
+        countdownEl.innerHTML = '<div class="countdown-item"><span class="countdown-number">💐</span><span class="countdown-label">Wedding Day!</span></div>';
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.innerHTML = `
+        <div class="countdown-item">
+          <span class="countdown-number">${days}</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number">${hours}</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number">${minutes}</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number">${seconds}</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      `;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // ===== SCROLL ANIMATIONS =====
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+    // Disable heavy animations on very small devices
+    if (window.innerWidth < 480) {
+      document.querySelectorAll('.fade-in').forEach(el => {
+        el.classList.add('visible');
+      });
+    }
+    document.getElementById("loadingScreen").addEventListener("click", startMusicOnce);
+
+  </script>
+</body>
+
+</html>
