@@ -1,0 +1,152 @@
+body {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    background: radial-gradient(circle at top, #13293d, #0b1c2d);
+    color: #f8f3e7;
+    text-align: center;
+}
+
+/* HERO */
+.hero {
+    padding: 100px 20px;
+    border-bottom: 3px solid #d4af37;
+}
+
+.ganesh {
+    width: 90px;
+}
+
+.shloka {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+.marathi {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.divider {
+    width: 160px;
+    height: 3px;
+    margin: 30px auto;
+    background: linear-gradient(90deg, #d4af37, #fff3c4, #d4af37);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        opacity: .4
+    }
+
+    50% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: .4
+    }
+}
+
+.hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 50px;
+    margin: 12px 0;
+    color: #fff1b8;
+}
+
+.amp {
+    font-size: 34px;
+    margin: 5px 0;
+}
+
+.subtitle {
+    font-size: 18px;
+    margin-top: 22px;
+    color: #efe6c3;
+}
+
+/* COUPLE */
+.couple {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 90px 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: linear-gradient(145deg, #1c3552, #0f2236);
+    padding: 26px;
+    border-radius: 18px;
+    border: 2px solid #d4af37;
+    width: 280px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .6);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 50%;
+    border: 5px solid #d4af37;
+}
+
+.card h3 {
+    font-family: 'Cinzel', serif;
+    margin-top: 15px;
+    color: #fff1b8;
+}
+
+/* DETAILS */
+.details {
+    padding: 80px 20px;
+    background: linear-gradient(to bottom, #0f2236, #091523);
+    border-top: 3px solid #d4af37;
+    border-bottom: 3px solid #d4af37;
+}
+
+.details h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#countdown {
+    margin: 25px 0;
+    font-size: 22px;
+    font-family: 'Cinzel', serif;
+    color: #fff1b8;
+}
+
+/* BUTTONS */
+.map-btn,
+.whatsapp {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 14px 34px;
+    background: linear-gradient(135deg, #fff1b8, #d4af37);
+    color: #0b1c2d;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* INVITE */
+.invite {
+    padding: 80px 20px;
+    font-size: 18px;
+}
+
+.host {
+    margin-top: 28px;
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    color: #fff1b8;
+}
+
+/* FOOTER */
+footer {
+    background: #070f19;
+    padding: 25px;
+    border-top: 2px solid #d4af37;
+}

@@ -1,0 +1,3271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mayur & Rutuja | Wedding Invitation</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Great+Vibes&family=Playfair+Display:wght@500;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #0b1c2d;
+      --navy-light: #13293d;
+      --navy-card: #1c3552;
+      --dark: #070f19;
+      --gold: #d4af37;
+      --gold-light: #fff1b8;
+      --cream: #f8f3e7;
+      --cream-dark: #efe6c3;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Playfair Display", serif;
+      background: var(--navy);
+      color: var(--cream);
+      text-align: center;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* =========================================================
+       BACKGROUND
+    ========================================================= */
+
+    .bg-animation {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+
+      background:
+        radial-gradient(circle at 20% 50%,
+          rgba(212, 175, 55, 0.1),
+          transparent 50%),
+        radial-gradient(circle at 80% 50%,
+          rgba(255, 241, 184, 0.08),
+          transparent 50%),
+        var(--navy);
+    }
+
+    .floating-petals {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .petal {
+      position: absolute;
+      top: -80px;
+      opacity: 0.6;
+      animation: petalFall linear infinite;
+      will-change: transform;
+    }
+
+    @keyframes petalFall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.6;
+      }
+
+      100% {
+        transform: translateY(calc(100vh + 150px)) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* =========================================================
+       LOADER
+    ========================================================= */
+
+    .loading-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 20px;
+
+      background:
+        radial-gradient(circle,
+          rgba(212, 175, 55, 0.12),
+          transparent 50%),
+        linear-gradient(135deg, var(--navy), var(--navy-light));
+
+      opacity: 1;
+      visibility: visible;
+
+      transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+
+      pointer-events: auto;
+    }
+
+    .loading-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .loader-content {
+      text-align: center;
+      animation: fadeUp 1s ease;
+    }
+
+    .loader-ganesh {
+      font-size: 80px;
+      filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.7));
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .loader-names {
+      margin-top: 20px;
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(42px, 8vw, 65px);
+      color: var(--gold-light);
+    }
+
+    .loader-subtitle {
+      margin-top: 15px;
+      font-family: "Cinzel", serif;
+      color: var(--gold);
+      letter-spacing: 3px;
+    }
+
+    .loader-bar {
+      width: 220px;
+      height: 3px;
+      margin: 30px auto 0;
+
+      background:
+        linear-gradient(90deg,
+          transparent,
+          var(--gold),
+          var(--gold-light),
+          var(--gold),
+          transparent);
+
+      animation: shimmer 1.5s infinite;
+    }
+
+    /* =========================================================
+       COMMON
+    ========================================================= */
+
+    section {
+      position: relative;
+    }
+
+    .section-title {
+      font-family: "Cinzel", serif;
+      font-size: clamp(30px, 5vw, 42px);
+      color: var(--gold-light);
+      margin-bottom: 45px;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(35px);
+
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gold-btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+
+      padding: 15px 32px;
+      margin: 10px;
+
+      border: none;
+      border-radius: 50px;
+
+      background:
+        linear-gradient(135deg, var(--gold), var(--gold-light));
+
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 700;
+
+      cursor: pointer;
+
+      box-shadow: 0 7px 22px rgba(212, 175, 55, 0.3);
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .gold-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(212, 175, 55, 0.45);
+    }
+
+    .gold-btn:focus-visible {
+      outline: 3px solid white;
+      outline-offset: 3px;
+    }
+
+    /* =========================================================
+       MUSIC BUTTON
+    ========================================================= */
+
+    .music-control {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+
+      width: 52px;
+      height: 52px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+
+      background: rgba(11, 28, 45, 0.8);
+      color: white;
+
+      font-size: 23px;
+      cursor: pointer;
+
+      backdrop-filter: blur(12px);
+
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+
+      transition: 0.25s ease;
+    }
+
+    .music-control:hover {
+      transform: scale(1.08);
+    }
+
+    .music-control.playing {
+      animation: musicPulse 1s infinite;
+    }
+
+    @keyframes musicPulse {
+      50% {
+        transform: scale(1.12);
+      }
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      padding: 90px 20px;
+
+      background:
+        radial-gradient(circle at center,
+          rgba(212, 175, 55, 0.08),
+          transparent 55%);
+    }
+
+    .ganesh {
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+
+      animation: float 3s ease-in-out infinite;
+
+      filter:
+        drop-shadow(0 0 18px rgba(212, 175, 55, 0.6));
+    }
+
+    .ganesh-fallback {
+      display: none;
+      font-size: 85px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .shloka {
+      margin: 25px 0 10px;
+
+      font-family: "Cinzel", serif;
+      letter-spacing: 3px;
+      font-size: clamp(17px, 3vw, 23px);
+
+      color: var(--gold-light);
+    }
+
+    .marathi {
+      margin: 8px 0;
+      color: var(--cream-dark);
+      line-height: 1.7;
+    }
+
+    .divider {
+      width: min(220px, 70vw);
+      height: 3px;
+      margin: 35px auto;
+
+      background:
+        linear-gradient(90deg,
+          transparent,
+          var(--gold),
+          white,
+          var(--gold),
+          transparent);
+
+      animation: shimmer 2s infinite;
+    }
+
+    .hero h1 {
+      font-family: "Great Vibes", cursive;
+
+      font-size: clamp(48px, 9vw, 78px);
+
+      color: var(--gold-light);
+
+      text-shadow:
+        2px 3px 8px rgba(0, 0, 0, 0.45);
+
+      line-height: 1.2;
+    }
+
+    .amp {
+      display: inline-block;
+
+      margin: 10px 0;
+
+      font-family: "Great Vibes", cursive;
+      font-size: 45px;
+
+      color: var(--gold);
+
+      animation: pulse 2s infinite;
+    }
+
+    .subtitle {
+      margin-top: 30px;
+      line-height: 1.8;
+
+      color: var(--cream-dark);
+      font-size: 18px;
+      font-style: italic;
+    }
+
+    /* =========================================================
+       COUPLE
+    ========================================================= */
+
+    .couple {
+      padding: 100px 20px;
+
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      width: min(330px, 100%);
+
+      padding: 28px;
+
+      border: 2px solid var(--gold);
+      border-radius: 22px;
+
+      background:
+        linear-gradient(145deg,
+          rgba(28, 53, 82, 0.88),
+          rgba(15, 34, 54, 0.88));
+
+      backdrop-filter: blur(10px);
+
+      box-shadow:
+        0 25px 55px rgba(0, 0, 0, 0.45);
+
+      transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+
+      box-shadow:
+        0 30px 65px rgba(212, 175, 55, 0.2);
+    }
+
+    .couple-photo {
+      width: 260px;
+      height: 260px;
+
+      margin: auto;
+
+      object-fit: cover;
+
+      border: 5px solid var(--gold);
+      border-radius: 50%;
+
+      background: var(--navy-light);
+    }
+
+    .card h3 {
+      margin-top: 22px;
+
+      font-family: "Cinzel", serif;
+      font-size: 21px;
+
+      color: var(--gold-light);
+    }
+
+    .card p {
+      margin-top: 12px;
+      line-height: 1.7;
+      color: var(--cream-dark);
+    }
+
+    /* =========================================================
+       CAROUSEL
+    ========================================================= */
+
+    .carousel-section {
+      padding: 100px 20px;
+
+      background:
+        linear-gradient(to bottom,
+          var(--navy-light),
+          var(--navy));
+    }
+
+    .carousel-container {
+      width: min(850px, 100%);
+      margin: auto;
+
+      position: relative;
+
+      overflow: hidden;
+
+      border: 2px solid var(--gold);
+      border-radius: 22px;
+
+      background: #081624;
+
+      box-shadow:
+        0 25px 65px rgba(0, 0, 0, 0.45);
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel-slides {
+      display: flex;
+
+      transition:
+        transform 0.7s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .carousel-slide {
+      flex: 0 0 100%;
+
+      aspect-ratio: 16 / 9;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #081624;
+
+      overflow: hidden;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+
+      background: #081624;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      width: 48px;
+      height: 48px;
+
+      border: none;
+      border-radius: 50%;
+
+      background: rgba(212, 175, 55, 0.9);
+      color: var(--navy);
+
+      font-size: 25px;
+
+      cursor: pointer;
+
+      z-index: 5;
+
+      transition: 0.25s;
+    }
+
+    .carousel-btn:hover {
+      transform:
+        translateY(-50%) scale(1.08);
+    }
+
+    .carousel-btn.prev {
+      left: 15px;
+    }
+
+    .carousel-btn.next {
+      right: 15px;
+    }
+
+    .carousel-controls {
+      position: absolute;
+
+      left: 50%;
+      bottom: 18px;
+
+      transform: translateX(-50%);
+
+      display: flex;
+      gap: 10px;
+
+      z-index: 6;
+    }
+
+    .carousel-dot {
+      width: 12px;
+      height: 12px;
+
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.5);
+
+      cursor: pointer;
+
+      transition: 0.25s;
+    }
+
+    .carousel-dot.active {
+      background: var(--gold);
+      transform: scale(1.3);
+    }
+
+    /* =========================================================
+       DRESS CODE
+    ========================================================= */
+
+    .dress-code {
+      padding: 100px 20px;
+
+      background:
+        linear-gradient(to bottom,
+          var(--navy),
+          var(--navy-light));
+    }
+
+    .dress-items {
+      max-width: 1100px;
+      margin: auto;
+
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .dress-item {
+      width: 300px;
+
+      padding: 35px 25px;
+
+      border: 2px solid var(--gold);
+      border-radius: 18px;
+
+      background:
+        rgba(28, 53, 82, 0.65);
+
+      backdrop-filter: blur(10px);
+
+      transition: 0.3s ease;
+    }
+
+    .dress-item:hover {
+      transform: translateY(-8px);
+    }
+
+    .dress-icon {
+      font-size: 55px;
+      margin-bottom: 18px;
+    }
+
+    .dress-item h3 {
+      font-family: "Cinzel", serif;
+      color: var(--gold);
+      margin-bottom: 13px;
+    }
+
+    .dress-item p {
+      line-height: 1.7;
+      color: var(--cream-dark);
+    }
+
+    /* =========================================================
+       GIFT
+    ========================================================= */
+
+    .gift-registry {
+      padding: 100px 20px;
+
+      background:
+        linear-gradient(135deg,
+          rgba(15, 34, 54, 0.95),
+          rgba(9, 21, 35, 0.95));
+    }
+
+    .gift-message {
+      width: min(720px, 100%);
+      margin: auto;
+
+      padding: 40px;
+
+      border: 2px solid var(--gold);
+      border-radius: 20px;
+
+      background:
+        rgba(28, 53, 82, 0.55);
+
+      line-height: 1.8;
+    }
+
+    .gift-icon {
+      font-size: 55px;
+      margin-bottom: 20px;
+    }
+
+    .gift-message p {
+      margin: 13px 0;
+      color: var(--cream-dark);
+      font-size: 17px;
+    }
+
+    /* =========================================================
+       WEDDING DETAILS
+    ========================================================= */
+
+    .details {
+      padding: 100px 20px;
+
+      border-top: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+
+      background:
+        linear-gradient(135deg,
+          rgba(15, 34, 54, 0.96),
+          rgba(9, 21, 35, 0.96));
+    }
+
+    .detail-item {
+      margin: 14px 0;
+      font-size: 19px;
+      line-height: 1.7;
+    }
+
+    .detail-item strong {
+      font-family: "Cinzel", serif;
+      color: var(--gold);
+    }
+
+    #countdown {
+      margin: 40px auto;
+
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .countdown-item {
+      min-width: 115px;
+
+      padding: 20px;
+
+      border: 2px solid var(--gold);
+      border-radius: 15px;
+
+      background:
+        rgba(212, 175, 55, 0.08);
+    }
+
+    .countdown-number {
+      display: block;
+
+      font-family: "Cinzel", serif;
+      font-size: 32px;
+      font-weight: 700;
+
+      color: var(--gold-light);
+    }
+
+    .countdown-label {
+      display: block;
+
+      margin-top: 7px;
+
+      font-size: 13px;
+
+      color: var(--gold);
+    }
+
+    .event-ended {
+      width: min(500px, 100%);
+
+      padding: 22px;
+
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+
+      background:
+        rgba(212, 175, 55, 0.08);
+
+      color: var(--gold-light);
+
+      line-height: 1.7;
+    }
+
+    /* =========================================================
+       TIMELINE
+    ========================================================= */
+
+    .gallery {
+      padding: 100px 20px;
+
+      background:
+        linear-gradient(to bottom,
+          var(--navy),
+          var(--navy-light));
+    }
+
+    .timeline {
+      width: min(800px, 100%);
+      margin: auto;
+    }
+
+    .timeline-item {
+      margin: 25px 0;
+
+      padding: 28px;
+
+      text-align: left;
+
+      border-left: 4px solid var(--gold);
+      border-radius: 12px;
+
+      background:
+        rgba(28, 53, 82, 0.5);
+
+      transition: 0.3s ease;
+    }
+
+    .timeline-item:hover {
+      transform: translateX(8px);
+
+      background:
+        rgba(28, 53, 82, 0.8);
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 10px;
+
+      font-family: "Cinzel", serif;
+      color: var(--gold);
+    }
+
+    .timeline-item p {
+      margin-top: 7px;
+      line-height: 1.6;
+    }
+
+    /* =========================================================
+       MESSAGE BOARD
+    ========================================================= */
+
+    .message-section {
+      padding: 100px 20px;
+
+      background:
+        linear-gradient(135deg,
+          rgba(15, 34, 54, 0.95),
+          rgba(9, 21, 35, 0.95));
+    }
+
+    .message-form {
+      width: min(600px, 100%);
+      margin: 0 auto 50px;
+
+      padding: 35px;
+
+      border: 2px solid var(--gold);
+      border-radius: 20px;
+
+      background:
+        rgba(28, 53, 82, 0.6);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+
+      margin-bottom: 8px;
+
+      font-family: "Cinzel", serif;
+      color: var(--gold);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+
+      padding: 13px;
+
+      border: 1px solid var(--gold);
+      border-radius: 9px;
+
+      background:
+        rgba(255, 255, 255, 0.08);
+
+      color: white;
+
+      outline: none;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold-light);
+
+      box-shadow:
+        0 0 0 3px rgba(212, 175, 55, 0.15);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .message-btn {
+      width: 100%;
+
+      padding: 14px;
+
+      border: none;
+      border-radius: 9px;
+
+      background:
+        linear-gradient(135deg,
+          var(--gold),
+          var(--gold-light));
+
+      color: var(--navy);
+
+      font-family: "Cinzel", serif;
+      font-weight: 700;
+
+      cursor: pointer;
+
+      transition: 0.25s;
+    }
+
+    .message-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .sample-messages {
+      width: min(800px, 100%);
+      margin: auto;
+    }
+
+    .messages-heading {
+      margin: 40px 0 30px;
+
+      font-family: "Cinzel", serif;
+      color: var(--gold);
+    }
+
+    .sample-message {
+      margin: 15px 0;
+
+      padding: 24px;
+
+      text-align: left;
+
+      border-left: 4px solid var(--gold);
+      border-radius: 10px;
+
+      background:
+        rgba(28, 53, 82, 0.45);
+    }
+
+    .sample-message .sender {
+      margin-bottom: 8px;
+
+      font-family: "Cinzel", serif;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .sample-message .text {
+      color: var(--cream-dark);
+      font-style: italic;
+      line-height: 1.7;
+
+      overflow-wrap: anywhere;
+    }
+
+    .storage-note {
+      margin-top: 20px;
+
+      font-size: 13px;
+
+      color: rgba(248, 243, 231, 0.6);
+    }
+
+    /* =========================================================
+       MODAL
+    ========================================================= */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+
+      z-index: 11000;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 20px;
+
+      background:
+        rgba(0, 0, 0, 0.82);
+
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+    }
+
+    .modal.show {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      width: min(500px, 100%);
+
+      padding: 45px 30px;
+
+      border: 2px solid var(--gold);
+      border-radius: 20px;
+
+      background:
+        linear-gradient(135deg,
+          var(--navy-card),
+          var(--navy));
+
+      animation: modalPop 0.35s ease;
+    }
+
+    .modal-icon {
+      font-size: 70px;
+    }
+
+    .modal-content h3 {
+      margin: 15px 0;
+
+      font-family: "Great Vibes", cursive;
+      font-size: 45px;
+
+      color: var(--gold-light);
+    }
+
+    .modal-content p {
+      line-height: 1.7;
+      color: var(--cream-dark);
+    }
+
+    .modal-close {
+      margin-top: 25px;
+
+      padding: 12px 30px;
+
+      border: none;
+      border-radius: 30px;
+
+      background:
+        linear-gradient(135deg,
+          var(--gold),
+          var(--gold-light));
+
+      color: var(--navy);
+
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* =========================================================
+       INVITATION
+    ========================================================= */
+
+    .invite {
+      padding: 100px 20px;
+
+      background:
+        radial-gradient(circle,
+          rgba(19, 41, 61, 0.85),
+          rgba(11, 28, 45, 0.95));
+    }
+
+    .invite>p {
+      width: min(700px, 100%);
+      margin: 0 auto 25px;
+
+      font-size: 19px;
+      line-height: 1.9;
+    }
+
+    .host {
+      margin-top: 35px !important;
+
+      font-family: "Cinzel", serif;
+
+      color: var(--gold-light);
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      padding: 40px 20px;
+
+      border-top: 2px solid var(--gold);
+
+      background: var(--dark);
+    }
+
+    footer p {
+      margin: 10px 0;
+    }
+
+    .heart {
+      display: inline-block;
+      animation: heartBeat 1.4s infinite;
+    }
+
+    .hashtag-footer {
+      font-family: "Cinzel", serif;
+      font-size: clamp(18px, 4vw, 24px);
+
+      color: var(--gold);
+    }
+
+    .footer-date {
+      margin-top: 20px;
+      opacity: 0.65;
+      font-size: 14px;
+    }
+
+    /* =========================================================
+       SCROLL TOP
+    ========================================================= */
+
+    .scroll-to-top {
+      position: fixed;
+
+      right: 25px;
+      bottom: -80px;
+
+      z-index: 999;
+
+      width: 50px;
+      height: 50px;
+
+      border: none;
+      border-radius: 50%;
+
+      background:
+        linear-gradient(135deg,
+          var(--gold),
+          var(--gold-light));
+
+      color: var(--navy);
+
+      font-size: 22px;
+      font-weight: bold;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 6px 22px rgba(212, 175, 55, 0.35);
+
+      transition: 0.3s ease;
+    }
+
+    .scroll-to-top.show {
+      bottom: 25px;
+    }
+
+    .scroll-to-top:hover {
+      transform: translateY(-4px);
+    }
+
+    /* =========================================================
+       ANIMATIONS
+    ========================================================= */
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    @keyframes pulse {
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes shimmer {
+
+      0%,
+      100% {
+        opacity: 0.45;
+        transform: scaleX(0.85);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes modalPop {
+      from {
+        opacity: 0;
+        transform: scale(0.85);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes heartBeat {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 768px) {
+
+      .music-control {
+        top: 15px;
+        right: 15px;
+
+        width: 46px;
+        height: 46px;
+      }
+
+      .hero {
+        padding: 80px 18px;
+      }
+
+      .couple,
+      .carousel-section,
+      .dress-code,
+      .gift-registry,
+      .details,
+      .gallery,
+      .message-section,
+      .invite {
+        padding: 75px 16px;
+      }
+
+      .couple {
+        gap: 30px;
+      }
+
+      .couple-photo {
+        width: 220px;
+        height: 220px;
+      }
+
+      .carousel-slide {
+        aspect-ratio: 4 / 3;
+      }
+
+      .carousel-btn {
+        width: 40px;
+        height: 40px;
+
+        font-size: 20px;
+      }
+
+      .carousel-btn.prev {
+        left: 8px;
+      }
+
+      .carousel-btn.next {
+        right: 8px;
+      }
+
+      .gift-message,
+      .message-form {
+        padding: 25px 20px;
+      }
+
+      .timeline-item {
+        padding: 22px;
+      }
+
+      .timeline-item:hover {
+        transform: none;
+      }
+
+      .countdown-item {
+        min-width: 90px;
+        padding: 15px;
+      }
+
+      .countdown-number {
+        font-size: 27px;
+      }
+
+      .scroll-to-top {
+        right: 18px;
+
+        width: 45px;
+        height: 45px;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .ganesh {
+        width: 90px;
+        height: 90px;
+      }
+
+      .loader-ganesh {
+        font-size: 65px;
+      }
+
+      .shloka {
+        letter-spacing: 1px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .couple-photo {
+        width: 200px;
+        height: 200px;
+      }
+
+      .carousel-slide {
+        aspect-ratio: 1 / 1;
+      }
+
+      .carousel-controls {
+        bottom: 10px;
+      }
+
+      .carousel-dot {
+        width: 10px;
+        height: 10px;
+      }
+
+      .gold-btn {
+        width: min(300px, 100%);
+        margin: 7px auto;
+      }
+
+      .button-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Background -->
+  <div class="bg-animation"></div>
+  <div class="floating-petals" id="petals"></div>
+
+
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+
+    <div class="loader-content">
+
+      <div class="loader-ganesh">🌸</div>
+
+      <div class="loader-names">
+        Mayur & Rutuja
+      </div>
+
+      <div class="loader-subtitle">
+        WEDDING INVITATION
+      </div>
+
+      <div class="loader-bar"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Music -->
+  <button class="music-control" id="musicToggle" type="button" aria-label="Play background music" title="Play Music">
+    🔇
+  </button>
+
+  <audio id="bgMusic" loop preload="none">
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+
+  <!-- Scroll Top -->
+  <button class="scroll-to-top" id="scrollToTop" type="button" aria-label="Scroll to top">
+    ↑
+  </button>
+
+
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
+
+  <section class="hero">
+
+    <img src="ganesh.png" class="ganesh" id="ganeshImage" alt="Lord Ganesh">
+
+    <div class="ganesh-fallback" id="ganeshFallback">
+      🕉️
+    </div>
+
+    <p class="shloka">
+      ॥ श्री गणेशाय नमः ॥
+    </p>
+
+    <p class="marathi">
+      श्री गणपतीच्या कृपेने आणि सर्वांच्या शुभाशीर्वादाने
+    </p>
+
+    <div class="divider"></div>
+
+    <h1>
+      Mayur Mohan More
+    </h1>
+
+    <span class="amp">
+      &
+    </span>
+
+    <h1>
+      Rutuja Wagmare
+    </h1>
+
+    <p class="subtitle">
+      Friends cordially invite you to grace and bless
+      <br>
+      the auspicious wedding ceremony
+    </p>
+
+  </section>
+
+
+  <!-- =======================================================
+       COUPLE
+  ======================================================== -->
+
+  <section class="couple fade-in">
+
+    <div class="card">
+
+      <img src="mayur.jpeg" class="couple-photo" alt="Mayur Mohan More" loading="lazy">
+
+      <h3>
+        Er. Mayur Mohan More
+      </h3>
+
+      <p>
+        Bachelor of Engineering
+        <br>
+        Computer Science Engineering
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <img src="rutuja.jpg" class="couple-photo" alt="Rutuja Wagmare" loading="lazy">
+
+      <h3>
+        Er. Rutuja Wagmare
+      </h3>
+
+      <p>
+        Bachelor of Engineering
+        <br>
+        Civil Engineering
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       CAROUSEL
+  ======================================================== -->
+
+  <section class="carousel-section fade-in">
+
+    <h2 class="section-title">
+      Blessings From
+    </h2>
+
+    <div class="carousel-container">
+
+      <div class="carousel-wrapper">
+
+        <div class="carousel-slides" id="carouselSlides">
+
+
+          <div class="carousel-slide">
+
+            <img src="photo1.jpeg" alt="Blessing Photo 1" loading="lazy">
+
+          </div>
+
+
+          <div class="carousel-slide">
+
+            <img src="SB.jpeg" alt="Blessing Photo 2" loading="lazy">
+
+          </div>
+
+
+          <div class="carousel-slide">
+
+            <img src="SK.jpeg" alt="Blessing Photo 3" loading="lazy">
+
+          </div>
+
+
+          <div class="carousel-slide">
+
+            <img src="PP.jpeg" alt="Blessing Photo 4" loading="lazy">
+
+          </div>
+
+
+        </div>
+
+
+        <button class="carousel-btn prev" id="prevBtn" type="button" aria-label="Previous photo">
+          ❮
+        </button>
+
+
+        <button class="carousel-btn next" id="nextBtn" type="button" aria-label="Next photo">
+          ❯
+        </button>
+
+
+        <div class="carousel-controls" id="carouselDots">
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       DRESS CODE
+  ======================================================== -->
+
+  <section class="dress-code fade-in">
+
+    <h2 class="section-title">
+      Dress Code Guide
+    </h2>
+
+    <div class="dress-items">
+
+
+      <div class="dress-item">
+
+        <div class="dress-icon">
+          👰
+        </div>
+
+        <h3>
+          For Bride
+        </h3>
+
+        <p>
+          Traditional Marathi Saree,
+          Bridal Jewelry & Heavy Makeup
+        </p>
+
+      </div>
+
+
+      <div class="dress-item">
+
+        <div class="dress-icon">
+          🤵
+        </div>
+
+        <h3>
+          For Groom
+        </h3>
+
+        <p>
+          Traditional Marathi Attire —
+          Sherwani with Turban
+        </p>
+
+      </div>
+
+
+      <div class="dress-item">
+
+        <div class="dress-icon">
+          ✨
+        </div>
+
+        <h3>
+          For Guests
+        </h3>
+
+        <p>
+          Traditional or Ethnic Wear —
+          Saree, Lehenga, or Formal Attire
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       GIFTS
+  ======================================================== -->
+
+  <section class="gift-registry fade-in">
+
+    <h2 class="section-title">
+      Gifts & Blessings
+    </h2>
+
+    <div class="gift-message">
+
+      <div class="gift-icon">
+        🎁
+      </div>
+
+      <p>
+        Your love and blessings are the greatest gifts
+        we could ask for.
+      </p>
+
+      <p>
+        Rather than material gifts, we request you to be
+        present with us and shower your heartfelt wishes
+        on this special day.
+      </p>
+
+      <p>
+        Your warm wishes and memories with us are the
+        most precious gifts that will last forever.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       WEDDING DETAILS
+  ======================================================== -->
+
+  <section class="details fade-in">
+
+    <h2 class="section-title">
+      Wedding Details
+    </h2>
+
+
+    <p class="detail-item">
+
+      <strong>
+        Date:
+      </strong>
+
+      14 FEB 2027
+
+    </p>
+
+
+    <p class="detail-item">
+
+      <strong>
+        Time:
+      </strong>
+
+      10:30 AM
+
+    </p>
+
+
+    <p class="detail-item">
+
+      <strong>
+        Venue:
+      </strong>
+
+      Aram Lodge, Dehu Fata
+
+    </p>
+
+
+    <div id="countdown"></div>
+
+
+    <div class="button-group">
+
+      <a class="gold-btn" href="https://www.google.com/maps/search/?api=1&query=Aram%20Lodge%20Dehu%20Fata"
+        target="_blank" rel="noopener noreferrer">
+
+        📍 View Location
+
+      </a>
+
+
+      <button class="gold-btn" id="calendarBtn" type="button">
+
+        📅 Add to Calendar
+
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       TIMELINE
+  ======================================================== -->
+
+  <section class="gallery fade-in">
+
+    <h2 class="section-title">
+      Wedding Timeline
+    </h2>
+
+    <div class="timeline">
+
+
+      <div class="timeline-item">
+
+        <h3>
+          🎊 Welcome & Registration
+        </h3>
+
+        <p>
+          9:30 AM – 10:15 AM
+        </p>
+
+        <p>
+          Join us for a warm welcome with refreshments.
+        </p>
+
+      </div>
+
+
+      <div class="timeline-item">
+
+        <h3>
+          💍 Wedding Ceremony
+        </h3>
+
+        <p>
+          10:30 AM – 12:00 PM
+        </p>
+
+        <p>
+          Sacred matrimonial rituals and blessings.
+        </p>
+
+      </div>
+
+
+      <div class="timeline-item">
+
+        <h3>
+          📸 Photography Session
+        </h3>
+
+        <p>
+          12:00 PM – 1:00 PM
+        </p>
+
+        <p>
+          Capture memories with the newlyweds.
+        </p>
+
+      </div>
+
+
+      <div class="timeline-item">
+
+        <h3>
+          🍽️ Reception & Dinner
+        </h3>
+
+        <p>
+          1:00 PM onwards
+        </p>
+
+        <p>
+          Celebrate with delicious cuisine and festivities.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       MESSAGE BOARD
+  ======================================================== -->
+
+  <section class="message-section fade-in">
+
+    <h2 class="section-title">
+      Blessings & Wishes
+    </h2>
+
+
+    <div class="message-form">
+
+      <form id="messageForm">
+
+
+        <div class="form-group">
+
+          <label for="guestName">
+            Your Name *
+          </label>
+
+          <input type="text" id="guestName" name="guestName" placeholder="Enter your name" maxlength="60"
+            autocomplete="name" required>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="guestMessage">
+            Your Message *
+          </label>
+
+          <textarea id="guestMessage" name="guestMessage" placeholder="Share your blessings and wishes..."
+            maxlength="500" required></textarea>
+
+        </div>
+
+
+        <button type="submit" class="message-btn">
+
+          💌 Send Wishes
+
+        </button>
+
+
+      </form>
+
+    </div>
+
+
+    <div class="sample-messages">
+
+      <h3 class="messages-heading">
+        Blessings from Our Guests
+      </h3>
+
+      <div id="messagesDisplay"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       SUCCESS MODAL
+  ======================================================== -->
+
+  <div class="modal" id="successModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+
+    <div class="modal-content">
+
+      <div class="modal-icon">
+        💐
+      </div>
+
+      <h3 id="modalTitle">
+        Thank You!
+      </h3>
+
+      <p>
+        Your wishes have been received with love
+        and gratitude.
+      </p>
+
+      <button class="modal-close" id="modalClose" type="button">
+
+        Close
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       INVITATION
+  ======================================================== -->
+
+  <section class="invite fade-in">
+
+    <p>
+      Your gracious presence and blessings
+      <br>
+      will make this sacred occasion truly memorable for us.
+    </p>
+
+
+    <div class="button-group">
+
+      <a class="gold-btn"
+        href="https://wa.me/?text=I%20will%20be%20attending%20Mayur%20and%20Rutuja%27s%20Wedding%20on%2014%20February%202026%20at%2010%3A30%20AM."
+        target="_blank" rel="noopener noreferrer">
+
+        ✓ Confirm Your Presence
+
+      </a>
+
+    </div>
+
+
+    <p class="host">
+
+      Hosted with love by
+      <br>
+
+      <strong>
+        Friends & Well-Wishers
+      </strong>
+
+    </p>
+
+
+    <div class="button-group">
+
+      <a class="gold-btn"
+        href="https://wa.me/?text=You%20are%20invited%20to%20Mayur%20and%20Rutuja%27s%20Wedding%20on%2014%20February%202026%20at%2010%3A30%20AM%20at%20Aram%20Lodge%2C%20Dehu%20Fata."
+        target="_blank" rel="noopener noreferrer">
+
+        📤 Share Invitation
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <p>
+      We look forward to celebrating with you
+
+      <span class="heart">
+        ❤️
+      </span>
+    </p>
+
+
+    <p class="hashtag-footer">
+      #Mayur Wedds Rutuja
+    </p>
+
+
+    <p class="footer-date">
+      14.02.2027
+    </p>
+
+  </footer>
+
+
+  <script>
+
+    "use strict";
+
+
+    /* =========================================================
+       ELEMENTS
+    ========================================================= */
+
+    const loadingScreen =
+      document.getElementById("loadingScreen");
+
+    const scrollToTopBtn =
+      document.getElementById("scrollToTop");
+
+    const musicToggle =
+      document.getElementById("musicToggle");
+
+    const bgMusic =
+      document.getElementById("bgMusic");
+
+    const carouselSlides =
+      document.getElementById("carouselSlides");
+
+    const carouselDots =
+      document.getElementById("carouselDots");
+
+    const nextBtn =
+      document.getElementById("nextBtn");
+
+    const prevBtn =
+      document.getElementById("prevBtn");
+
+    const countdownEl =
+      document.getElementById("countdown");
+
+    const calendarBtn =
+      document.getElementById("calendarBtn");
+
+    const messageForm =
+      document.getElementById("messageForm");
+
+    const messagesDisplay =
+      document.getElementById("messagesDisplay");
+
+    const successModal =
+      document.getElementById("successModal");
+
+    const modalClose =
+      document.getElementById("modalClose");
+
+
+    /* =========================================================
+       LOADING SCREEN
+    ========================================================= */
+
+    window.addEventListener("load", function () {
+
+      setTimeout(function () {
+
+        loadingScreen.classList.add("hidden");
+
+      }, 1500);
+
+    });
+
+
+    /* Fallback in case load event takes too long */
+
+    setTimeout(function () {
+
+      loadingScreen.classList.add("hidden");
+
+    }, 5000);
+
+
+    /* =========================================================
+       IMAGE ERROR HANDLING
+    ========================================================= */
+
+    const ganeshImage =
+      document.getElementById("ganeshImage");
+
+    const ganeshFallback =
+      document.getElementById("ganeshFallback");
+
+
+    ganeshImage.addEventListener("error", function () {
+
+      ganeshImage.style.display = "none";
+      ganeshFallback.style.display = "block";
+
+    });
+
+
+    document
+      .querySelectorAll(".couple-photo")
+      .forEach(function (image) {
+
+        image.addEventListener("error", function () {
+
+          image.style.objectFit = "contain";
+
+          image.alt =
+            "Photo file not found. Check the image filename.";
+
+        });
+
+      });
+
+
+    /* =========================================================
+       SCROLL TO TOP
+    ========================================================= */
+
+    function updateScrollButton() {
+
+      if (window.scrollY > 350) {
+
+        scrollToTopBtn.classList.add("show");
+
+      } else {
+
+        scrollToTopBtn.classList.remove("show");
+
+      }
+
+    }
+
+
+    window.addEventListener(
+      "scroll",
+      updateScrollButton,
+      { passive: true }
+    );
+
+
+    scrollToTopBtn.addEventListener(
+      "click",
+      function () {
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      }
+    );
+
+
+    /* =========================================================
+       MUSIC
+    ========================================================= */
+
+    function setMusicButtonState() {
+
+      if (bgMusic.paused) {
+
+        musicToggle.textContent = "🔇";
+
+        musicToggle.classList.remove("playing");
+
+        musicToggle.setAttribute(
+          "aria-label",
+          "Play background music"
+        );
+
+        musicToggle.title = "Play Music";
+
+      } else {
+
+        musicToggle.textContent = "🎵";
+
+        musicToggle.classList.add("playing");
+
+        musicToggle.setAttribute(
+          "aria-label",
+          "Pause background music"
+        );
+
+        musicToggle.title = "Pause Music";
+
+      }
+
+    }
+
+
+    musicToggle.addEventListener(
+      "click",
+      async function () {
+
+        if (!bgMusic.paused) {
+
+          bgMusic.pause();
+
+          setMusicButtonState();
+
+          return;
+
+        }
+
+        try {
+
+          await bgMusic.play();
+
+        } catch (error) {
+
+          console.warn(
+            "Music could not play. Make sure music.mp3 exists.",
+            error
+          );
+
+        }
+
+        setMusicButtonState();
+
+      }
+    );
+
+
+    bgMusic.addEventListener(
+      "play",
+      setMusicButtonState
+    );
+
+
+    bgMusic.addEventListener(
+      "pause",
+      setMusicButtonState
+    );
+
+
+    bgMusic.addEventListener(
+      "error",
+      function () {
+
+        musicToggle.textContent = "🔇";
+
+        musicToggle.title =
+          "music.mp3 not found";
+
+        console.warn(
+          "music.mp3 could not be loaded."
+        );
+
+      }
+    );
+
+
+    setMusicButtonState();
+
+
+    /* =========================================================
+       CAROUSEL
+    ========================================================= */
+
+    const slides =
+      Array.from(
+        document.querySelectorAll(".carousel-slide")
+      );
+
+    let currentSlide = 0;
+
+    let carouselTimer = null;
+
+
+    function createCarouselDots() {
+
+      carouselDots.innerHTML = "";
+
+      slides.forEach(function (_, index) {
+
+        const dot =
+          document.createElement("button");
+
+        dot.type = "button";
+
+        dot.className =
+          "carousel-dot";
+
+        dot.setAttribute(
+          "aria-label",
+          "Go to photo " + (index + 1)
+        );
+
+
+        dot.addEventListener(
+          "click",
+          function () {
+
+            goToSlide(index);
+
+          }
+        );
+
+
+        carouselDots.appendChild(dot);
+
+      });
+
+    }
+
+
+    function updateCarousel() {
+
+      if (!slides.length) {
+        return;
+      }
+
+      carouselSlides.style.transform =
+        "translateX(-" +
+        currentSlide * 100 +
+        "%)";
+
+
+      const dots =
+        carouselDots.querySelectorAll(
+          ".carousel-dot"
+        );
+
+
+      dots.forEach(
+        function (dot, index) {
+
+          dot.classList.toggle(
+            "active",
+            index === currentSlide
+          );
+
+        }
+      );
+
+    }
+
+
+    function goToSlide(index) {
+
+      if (!slides.length) {
+        return;
+      }
+
+      currentSlide =
+        (index + slides.length) %
+        slides.length;
+
+      updateCarousel();
+
+      restartCarousel();
+
+    }
+
+
+    function nextSlide() {
+
+      goToSlide(
+        currentSlide + 1
+      );
+
+    }
+
+
+    function previousSlide() {
+
+      goToSlide(
+        currentSlide - 1
+      );
+
+    }
+
+
+    function startCarousel() {
+
+      if (slides.length <= 1) {
+        return;
+      }
+
+      clearInterval(carouselTimer);
+
+      carouselTimer =
+        setInterval(function () {
+
+          currentSlide =
+            (currentSlide + 1) %
+            slides.length;
+
+          updateCarousel();
+
+        }, 5000);
+
+    }
+
+
+    function restartCarousel() {
+
+      clearInterval(carouselTimer);
+
+      startCarousel();
+
+    }
+
+
+    nextBtn.addEventListener(
+      "click",
+      nextSlide
+    );
+
+
+    prevBtn.addEventListener(
+      "click",
+      previousSlide
+    );
+
+
+    createCarouselDots();
+
+    updateCarousel();
+
+    startCarousel();
+
+
+    /* Pause carousel when tab isn't visible */
+
+    document.addEventListener(
+      "visibilitychange",
+      function () {
+
+        if (document.hidden) {
+
+          clearInterval(carouselTimer);
+
+        } else {
+
+          startCarousel();
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       COUNTDOWN
+       Original invitation date:
+       14 February 2027 - 10:30 AM IST
+    ========================================================= */
+
+    const weddingDate =
+      new Date(
+        "2027-02-14T10:30:00+05:30"
+      );
+
+
+    function renderCountdown() {
+
+      const now =
+        new Date();
+
+      const distance =
+        weddingDate.getTime() -
+        now.getTime();
+
+
+      /*
+       * The invitation date is already in the past
+       * after 14 February 2027.
+       *
+       * Instead of incorrectly showing
+       * "Wedding Day!" forever, show a completed
+       * event message.
+       */
+
+      if (distance <= 0) {
+
+        countdownEl.innerHTML =
+          '<div class="event-ended">' +
+          "<strong>💐 Mayur & Rutuja</strong><br>" +
+          "Wedding celebrated on 14 February 2027" +
+          "</div>";
+
+        return;
+
+      }
+
+
+      const second = 1000;
+
+      const minute =
+        second * 60;
+
+      const hour =
+        minute * 60;
+
+      const day =
+        hour * 24;
+
+
+      const days =
+        Math.floor(
+          distance / day
+        );
+
+
+      const hours =
+        Math.floor(
+          (distance % day) /
+          hour
+        );
+
+
+      const minutes =
+        Math.floor(
+          (distance % hour) /
+          minute
+        );
+
+
+      const seconds =
+        Math.floor(
+          (distance % minute) /
+          second
+        );
+
+
+      countdownEl.innerHTML = `
+
+        <div class="countdown-item">
+
+          <span class="countdown-number">
+            ${days}
+          </span>
+
+          <span class="countdown-label">
+            Days
+          </span>
+
+        </div>
+
+
+        <div class="countdown-item">
+
+          <span class="countdown-number">
+            ${hours}
+          </span>
+
+          <span class="countdown-label">
+            Hours
+          </span>
+
+        </div>
+
+
+        <div class="countdown-item">
+
+          <span class="countdown-number">
+            ${minutes}
+          </span>
+
+          <span class="countdown-label">
+            Minutes
+          </span>
+
+        </div>
+
+
+        <div class="countdown-item">
+
+          <span class="countdown-number">
+            ${seconds}
+          </span>
+
+          <span class="countdown-label">
+            Seconds
+          </span>
+
+        </div>
+
+      `;
+
+    }
+
+
+    renderCountdown();
+
+
+    const countdownTimer =
+      setInterval(function () {
+
+        if (
+          weddingDate.getTime() <=
+          Date.now()
+        ) {
+
+          renderCountdown();
+
+          clearInterval(
+            countdownTimer
+          );
+
+          return;
+
+        }
+
+        renderCountdown();
+
+      }, 1000);
+
+
+    /* =========================================================
+       GOOGLE CALENDAR
+       10:30 AM IST = 05:00 UTC
+       End time = 12:30 PM IST = 07:00 UTC
+    ========================================================= */
+
+    calendarBtn.addEventListener(
+      "click",
+      function () {
+
+        const eventTitle =
+          "Mayur & Rutuja Wedding";
+
+        const eventLocation =
+          "Aram Lodge, Dehu Fata";
+
+        const eventDescription =
+          "Celebrating the wedding of Mayur Mohan More and Rutuja Wagmare";
+
+
+        const startUTC =
+          "20260214T050000Z";
+
+        const endUTC =
+          "20260214T070000Z";
+
+
+        const params =
+          new URLSearchParams({
+            action: "TEMPLATE",
+            text: eventTitle,
+            dates:
+              startUTC +
+              "/" +
+              endUTC,
+            location:
+              eventLocation,
+            details:
+              eventDescription
+          });
+
+
+        const url =
+          "https://calendar.google.com/calendar/render?" +
+          params.toString();
+
+
+        window.open(
+          url,
+          "_blank",
+          "noopener,noreferrer"
+        );
+
+      }
+    );
+
+
+    /* =========================================================
+       SAMPLE WISHES
+    ========================================================= */
+
+    const sampleMessages = [
+
+      {
+        name: "Priya Sharma",
+
+        message:
+          "Wishing you a lifetime of happiness and love together. May your marriage be filled with beautiful moments and endless joy!"
+      },
+
+      {
+        name: "Rajesh Kumar",
+
+        message:
+          "Congratulations on your wedding! May you both support each other through all the joys and challenges of life."
+      },
+
+      {
+        name: "Anjali Desai",
+
+        message:
+          "What a beautiful couple! Here's to love, laughter, and happily ever after. Have a magical wedding day!"
+      },
+
+      {
+        name: "Vikram Patel",
+
+        message:
+          "Two souls, one heart. Wishing you both a wonderful journey ahead filled with blessings and prosperity."
+      }
+
+    ];
+
+
+    /* =========================================================
+       LOCAL STORAGE
+    ========================================================= */
+
+    const STORAGE_KEY =
+      "mayurRutujaGuestMessages";
+
+
+    function getStoredMessages() {
+
+      try {
+
+        const data =
+          localStorage.getItem(
+            STORAGE_KEY
+          );
+
+
+        if (!data) {
+
+          return [];
+
+        }
+
+
+        const parsed =
+          JSON.parse(data);
+
+
+        if (!Array.isArray(parsed)) {
+
+          return [];
+
+        }
+
+
+        return parsed.filter(
+          function (item) {
+
+            return (
+              item &&
+              typeof item.name === "string" &&
+              typeof item.message === "string"
+            );
+
+          }
+        );
+
+      } catch (error) {
+
+        console.warn(
+          "Unable to read guest messages.",
+          error
+        );
+
+        return [];
+
+      }
+
+    }
+
+
+    function saveMessages(messages) {
+
+      try {
+
+        localStorage.setItem(
+          STORAGE_KEY,
+          JSON.stringify(messages)
+        );
+
+        return true;
+
+      } catch (error) {
+
+        console.warn(
+          "Unable to save guest messages.",
+          error
+        );
+
+        return false;
+
+      }
+
+    }
+
+
+    /* =========================================================
+       SAFE MESSAGE RENDERING
+       Uses textContent instead of inserting user HTML.
+    ========================================================= */
+
+    function createMessageElement(message) {
+
+      const card =
+        document.createElement("div");
+
+      card.className =
+        "sample-message";
+
+
+      const sender =
+        document.createElement("div");
+
+      sender.className =
+        "sender";
+
+      sender.textContent =
+        "✨ " + message.name;
+
+
+      const text =
+        document.createElement("div");
+
+      text.className =
+        "text";
+
+      text.textContent =
+        '"' +
+        message.message +
+        '"';
+
+
+      card.appendChild(sender);
+
+      card.appendChild(text);
+
+
+      return card;
+
+    }
+
+
+    function loadAndDisplayMessages() {
+
+      const storedMessages =
+        getStoredMessages();
+
+
+      const allMessages = [
+
+        ...storedMessages,
+
+        ...sampleMessages
+
+      ];
+
+
+      messagesDisplay.innerHTML =
+        "";
+
+
+      allMessages.forEach(
+        function (message) {
+
+          messagesDisplay.appendChild(
+            createMessageElement(
+              message
+            )
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =========================================================
+       MESSAGE FORM
+    ========================================================= */
+
+    messageForm.addEventListener(
+      "submit",
+      function (event) {
+
+        event.preventDefault();
+
+
+        const guestNameInput =
+          document.getElementById(
+            "guestName"
+          );
+
+
+        const guestMessageInput =
+          document.getElementById(
+            "guestMessage"
+          );
+
+
+        const guestName =
+          guestNameInput.value.trim();
+
+
+        const guestMessage =
+          guestMessageInput.value.trim();
+
+
+        if (
+          !guestName ||
+          !guestMessage
+        ) {
+
+          return;
+
+        }
+
+
+        const storedMessages =
+          getStoredMessages();
+
+
+        storedMessages.unshift({
+
+          name:
+            guestName.slice(0, 60),
+
+          message:
+            guestMessage.slice(0, 500),
+
+          createdAt:
+            new Date().toISOString()
+
+        });
+
+
+        /*
+         * Prevent unlimited localStorage growth.
+         */
+
+        const limitedMessages =
+          storedMessages.slice(0, 50);
+
+
+        saveMessages(
+          limitedMessages
+        );
+
+
+        messageForm.reset();
+
+
+        loadAndDisplayMessages();
+
+
+        openModal();
+
+      }
+    );
+
+
+    /* =========================================================
+       MODAL
+    ========================================================= */
+
+    let modalTimer = null;
+
+
+    function openModal() {
+
+      clearTimeout(
+        modalTimer
+      );
+
+
+      successModal.classList.add(
+        "show"
+      );
+
+
+      modalClose.focus();
+
+
+      modalTimer =
+        setTimeout(function () {
+
+          closeModal();
+
+        }, 3500);
+
+    }
+
+
+    function closeModal() {
+
+      successModal.classList.remove(
+        "show"
+      );
+
+      clearTimeout(
+        modalTimer
+      );
+
+    }
+
+
+    modalClose.addEventListener(
+      "click",
+      closeModal
+    );
+
+
+    successModal.addEventListener(
+      "click",
+      function (event) {
+
+        if (
+          event.target ===
+          successModal
+        ) {
+
+          closeModal();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      function (event) {
+
+        if (
+          event.key === "Escape" &&
+          successModal.classList.contains(
+            "show"
+          )
+        ) {
+
+          closeModal();
+
+        }
+
+      }
+    );
+
+
+    loadAndDisplayMessages();
+
+
+    /* =========================================================
+       FLOATING PETALS
+    ========================================================= */
+
+    const petalsContainer =
+      document.getElementById(
+        "petals"
+      );
+
+
+    const petalSymbols = [
+      "🌸",
+      "🌺",
+      "🌼",
+      "💐",
+      "🏵️"
+    ];
+
+
+    const reduceMotion =
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+
+    if (!reduceMotion) {
+
+      for (
+        let i = 0;
+        i < 14;
+        i++
+      ) {
+
+        const petal =
+          document.createElement(
+            "div"
+          );
+
+
+        petal.className =
+          "petal";
+
+
+        petal.textContent =
+          petalSymbols[
+          Math.floor(
+            Math.random() *
+            petalSymbols.length
+          )
+          ];
+
+
+        petal.style.left =
+          Math.random() *
+          100 +
+          "%";
+
+
+        petal.style.fontSize =
+          (
+            16 +
+            Math.random() * 16
+          ) +
+          "px";
+
+
+        petal.style.animationDuration =
+          (
+            10 +
+            Math.random() * 10
+          ) +
+          "s";
+
+
+        petal.style.animationDelay =
+          (
+            Math.random() * 7
+          ) +
+          "s";
+
+
+        petalsContainer.appendChild(
+          petal
+        );
+
+      }
+
+    }
+
+
+    /* =========================================================
+       SCROLL ANIMATION
+    ========================================================= */
+
+    const fadeElements =
+      document.querySelectorAll(
+        ".fade-in"
+      );
+
+
+    if (
+      "IntersectionObserver" in window
+    ) {
+
+      const observer =
+        new IntersectionObserver(
+
+          function (entries, observerInstance) {
+
+            entries.forEach(
+              function (entry) {
+
+                if (
+                  entry.isIntersecting
+                ) {
+
+                  entry.target.classList.add(
+                    "visible"
+                  );
+
+
+                  observerInstance.unobserve(
+                    entry.target
+                  );
+
+                }
+
+              }
+            );
+
+          },
+
+          {
+            threshold: 0.08
+          }
+
+        );
+
+
+      fadeElements.forEach(
+        function (element) {
+
+          observer.observe(
+            element
+          );
+
+        }
+      );
+
+    } else {
+
+      fadeElements.forEach(
+        function (element) {
+
+          element.classList.add(
+            "visible"
+          );
+
+        }
+      );
+
+    }
+
+
+  </script>
+
+</body>
+
+</html>
